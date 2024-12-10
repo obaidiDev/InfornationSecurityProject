@@ -1,0 +1,14 @@
+- id: list-files-web-dir
+  name: List Files in Web Directory
+  description: List all files in the web server directory (/var/www/html).
+  tactic: discovery
+  technique:
+    attack_id: T1083
+    name: File and Directory Discovery
+  platforms:
+    linux:
+      sh:
+        command: "ls -la /var/www/html"
+        parsers:
+          - source: stdout
+            keys: ["output"]

@@ -1,0 +1,14 @@
+- id: check-apache-config
+  name: Check Apache Configuration
+  description: Retrieve the Apache web server configuration file.
+  tactic: discovery
+  technique:
+    attack_id: T1003
+    name: Configuration Dump
+  platforms:
+    linux:
+      sh:
+        command: "cat /etc/apache2/apache2.conf"
+        parsers:
+          - source: stdout
+            keys: ["output"]

